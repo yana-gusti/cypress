@@ -9,8 +9,12 @@ const config: Config.InitialOptions = {
   ],
   // setupFilesAfterEnv: [helpers],
   testEnvironment: '@askui/jest-allure-circus',
-  // testMatch: ['**/tests/*.test.ts'],
-  testMatch: ['**/tests/xlsx.test.ts'],
+  testEnvironmentOptions: {
+    addCodeInReport: false
+  },
+  setupFilesAfterEnv: [path.resolve(__dirname, './askui/helpers/askui-helper.ts')],
+  // testMatch: ['**/askui/features/*.feature']
+  testMatch: [ "**/askui/features/*.feature", "**/askui/steps/*.js" ]
 };
 
 // eslint-disable-next-line import/no-default-export
